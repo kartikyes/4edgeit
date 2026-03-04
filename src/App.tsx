@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Layout from './components/layout/Layout';
-import { Analytics } from "@vercel/analytics/next"
 
 // Lazy-loaded pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -46,7 +45,6 @@ export default function App() {
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
-        <Analytics />
       </Layout>
     </BrowserRouter>
   );
