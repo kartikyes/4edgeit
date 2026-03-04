@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette derived from 4Edge logo:
+     Sky-blue "4E" ≈ #00AEEF · Green cube ≈ #2D9B4E · Dark text ≈ #1A1F2E */
+  --color-primary: #00AEEF;          /* sky-blue – buttons, links, accents */
+  --color-primary-dark: #0077B6;     /* deeper sky-blue for gradients & hover states */
+  --color-cyan-accent: #33BFFF;      /* lighter cyan highlight */
+  --color-green-accent: #2D9B4E;     /* logo green – secondary accent */
+  --color-green-light: #57CC79;      /* lighter green for hover / highlights */
+  --color-heading: #1A1F2E;          /* neutral dark – headings (no longer all-blue) */
+  --color-dark-text: #1A1F2E;        /* body text */
+  --color-medium-gray: #4A5568;      /* muted text */
+  --color-light-gray: #F0F4F8;       /* section bg tint */
+  --color-border-gray: #E2E8F0;      /* borders, dividers */
+  --color-navy: #021526;             /* dark hero / footer bg */
+
+  --font-heading: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-dark-text);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  color: var(--color-heading);
+  margin-bottom: 0.4em;
+}
+
+p {
+  margin-top: 0.5em;
+}
+
+/* Restore white headings inside dark gradient sections */
+.gradient-hero h1, .gradient-hero h2, .gradient-hero h3,
+.gradient-cta  h1, .gradient-cta  h2, .gradient-cta  h3 {
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-light-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* Custom Utilities */
+.gradient-hero {
+  background: linear-gradient(135deg, #021526 0%, #013A63 40%, #0077B6 75%, #00AEEF 100%);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, #013A63 0%, #0077B6 50%, #00AEEF 100%);
+}
+
+/* display:inline-block scopes background-clip to the text bounding box.
+   Without it, some browsers apply -webkit-text-fill-color:transparent to the
+   full block width but fail to clip the gradient — text becomes invisible. */
+.text-gradient {
+  display: inline-block;
+  background: linear-gradient(135deg, #33BFFF 0%, #2D9B4E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #33BFFF; /* non-WebKit fallback keeps text visible */
+}
+
+/* Animated grid bg */
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* =================================================================
+   Global Card Design System
+   ================================================================= */
+
+/* Base card surface */
+.card-base {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid var(--color-border-gray);
+  box-shadow: 0 2px 8px rgba(0, 55, 100, 0.07), 0 1px 2px rgba(0,0,0,0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-base:hover {
+  box-shadow: 0 10px 32px rgba(0, 174, 239, 0.15), 0 2px 6px rgba(0,0,0,0.05);
+  transform: translateY(-5px);
+}
+
+/* Add brand-blue accent top border */
+.card-accent-top {
+  border-top: 3px solid var(--color-primary);
+}
+
+/* =================================================================
+   Nav link underline animation */
+/* ================================================================= */
+/* Nav link underline animation */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+.nav-link-underline:hover::after {
+  width: 100%;
+}
