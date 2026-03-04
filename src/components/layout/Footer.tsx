@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Youtube, Facebook } from 'lucide-react';
+import LogoImg from '../../assets/4edge.png';
 import StatCounter from '../ui/StatCounter';
 import AnimatedSection from '../ui/AnimatedSection';
 
@@ -60,11 +61,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Col 1: Logo & Info */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="2" y="30" fontFamily="Arial Black, sans-serif" fontWeight="800" fontSize="28" fill="#00AEEF">4E</text>
-                <rect x="28" y="2" width="10" height="10" rx="2" fill="#2D9B4E" transform="rotate(5 33 7)" />
-              </svg>
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <img src={LogoImg} alt="4Edge logo" className="w-9 h-9 object-contain" />
               <span className="text-lg font-bold font-heading text-white">
                 4Edge <span className="font-normal">IT Solutions</span>
               </span>

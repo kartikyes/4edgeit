@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import LogoImg from '../../assets/4edge.png';
 import { navigationItems } from '../../data/navigation';
 import MegaMenu from '../ui/MegaMenu';
 import Button from '../ui/Button';
@@ -9,10 +10,7 @@ import Button from '../ui/Button';
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="flex items-center gap-2 shrink-0">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="2" y="30" fontFamily="Arial Black, sans-serif" fontWeight="800" fontSize="28" fill="#00B4D8">4E</text>
-        <rect x="28" y="2" width="10" height="10" rx="2" fill="#2D9B4E" transform="rotate(5 33 7)" />
-      </svg>
+      <img src={LogoImg} alt="4Edge logo" className="w-10 h-10 object-contain" />
       <span className={`text-lg font-bold font-heading ${light ? 'text-white' : 'text-dark-text'}`}>
         4Edge <span className="font-normal">IT Solutions</span>
       </span>
