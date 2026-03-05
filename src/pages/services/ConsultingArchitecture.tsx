@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
-  CheckCircle2, Lightbulb, Target, Settings, BarChart3,
+  CheckCircle2, Target, Settings, BarChart3,
   Shield, Layers, Search, Clock
 } from 'lucide-react';
 import { usePageMeta } from '../../hooks/usePageMeta';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
-  CheckCircle2, Glasses, Eye, Brain, Shield, Users, BarChart3
+  CheckCircle2, Glasses, Eye
 } from 'lucide-react';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import Button from '../../components/ui/Button';
