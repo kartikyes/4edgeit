@@ -24,3 +24,5 @@ resources
 *.sln
 *.sw?
 build_output.txt
+fix_opacity.cjs
+fix_opacity.js

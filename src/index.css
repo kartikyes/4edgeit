@@ -76,8 +76,26 @@ p {
   background: linear-gradient(135deg, #021526 0%, #013A63 40%, #0077B6 75%, #00AEEF 100%);
 }
 
+/* When gradient-hero is combined with hero-grid-bg the grid's background-image
+   would clobber the gradient. This more-specific rule layers both together. */
+.gradient-hero.hero-grid-bg {
+  background:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(135deg, #021526 0%, #013A63 40%, #0077B6 75%, #00AEEF 100%);
+  background-size: 60px 60px, 60px 60px, 100% 100%;
+}
+
 .gradient-cta {
   background: linear-gradient(135deg, #013A63 0%, #0077B6 50%, #00AEEF 100%);
+}
+
+.gradient-cta.hero-grid-bg {
+  background:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(135deg, #013A63 0%, #0077B6 50%, #00AEEF 100%);
+  background-size: 60px 60px, 60px 60px, 100% 100%;
 }
 
 /* display:inline-block scopes background-clip to the text bounding box.

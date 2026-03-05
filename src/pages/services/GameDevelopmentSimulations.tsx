@@ -13,7 +13,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem, FadeScaleItem } from '.
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import { gameCaseStudies, gameFAQs, gameTypesData, gamificationElements, gameDevPhases } from '../../data/servicesData';
 import type { ReactNode } from 'react';
-import HeroSection, { MetricsVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 
 export default function GameDevelopmentSimulations() {
   usePageMeta({
@@ -47,19 +47,6 @@ export default function GameDevelopmentSimulations() {
           { value: 2, suffix: 'M+', label: 'Players Trained' },
           { value: 90, suffix: '%', label: 'Avg. Completion Rate' },
         ]}
-        visual={
-          <MetricsVisual
-            title="Game Types We Build"
-            items={[
-              { icon: <Gamepad2 className="w-5 h-5" />, label: 'Serious Games', value: '100+' },
-              { icon: <Brain className="w-5 h-5" />, label: 'Scenario Simulations' },
-              { icon: <Trophy className="w-5 h-5" />, label: 'Gamification' },
-              { icon: <Target className="w-5 h-5" />, label: 'Business Simulations' },
-              { icon: <Monitor className="w-5 h-5" />, label: '3D Desktop Sims' },
-              { icon: <BarChart3 className="w-5 h-5" />, label: 'Avg. Retention Lift', value: '3–5×' },
-            ]}
-          />
-        }
       />
 
       {/* OVERVIEW */}
@@ -263,7 +250,7 @@ export default function GameDevelopmentSimulations() {
                     { cat: 'Standards', tech: 'SCORM 1.2/2004, xAPI (Tin Can), cmi5' },
                     { cat: 'Analytics', tech: 'Learning Record Store (LRS), Custom dashboards, Power BI' },
                   ].map((r, i) => (
-                    <motion.tr key={r.cat} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                    <motion.tr key={r.cat} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                       <td className="p-4 font-semibold text-dark-text text-sm">{r.cat}</td>
                       <td className="p-4 text-sm text-medium-gray">{r.tech}</td>
                     </motion.tr>
@@ -299,7 +286,7 @@ export default function GameDevelopmentSimulations() {
                     { type: 'Advanced AI Game', range: '₹15L – ₹40L', time: 'Natural language processing, adaptive AI, multiplayer' },
                     { type: 'Gamification Layer', range: '₹3L – ₹15L', time: 'Points, badges, leaderboards integrated into existing platform' },
                   ].map((r, i) => (
-                    <motion.tr key={r.type} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                    <motion.tr key={r.type} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                       <td className="p-4 text-sm font-semibold text-dark-text">{r.type}</td>
                       <td className="p-4 text-sm font-mono text-primary font-semibold">{r.range}</td>
                       <td className="p-4 text-sm text-medium-gray">{r.time}</td>
@@ -351,7 +338,7 @@ export default function GameDevelopmentSimulations() {
               {gameFAQs.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}

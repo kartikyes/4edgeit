@@ -12,7 +12,7 @@ import Badge from '../../components/ui/Badge';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../../components/ui/AnimatedSection';
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import { ltsMethodology, ltsCaseStudies, ltsFAQs } from '../../data/servicesData';
-import HeroSection, { MetricsVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 
 export default function LearningTrainingSolutions() {
   usePageMeta({
@@ -38,19 +38,6 @@ export default function LearningTrainingSolutions() {
           { value: 500, suffix: '+', label: 'Custom Courses' },
           { value: 200000, suffix: '+', label: 'Employees Trained' },
         ]}
-        visual={
-          <MetricsVisual
-            title="Our Service Pillars"
-            items={[
-              { icon: <Settings className="w-5 h-5" />, label: 'LMS Implementation' },
-              { icon: <BookOpen className="w-5 h-5" />, label: 'Custom Content', value: '500+' },
-              { icon: <Users className="w-5 h-5" />, label: 'ILT & VILT' },
-              { icon: <ShieldCheck className="w-5 h-5" />, label: 'Compliance Training' },
-              { icon: <Target className="w-5 h-5" />, label: 'Learning Strategy' },
-              { icon: <BarChart3 className="w-5 h-5" />, label: 'L&D Analytics' },
-            ]}
-          />
-        }
       />
 
       {/* OVERVIEW */}
@@ -573,7 +560,7 @@ export default function LearningTrainingSolutions() {
                     { model: 'Retainer', best: 'Continuous content development, managed services', range: '₹2L – ₹10L per month' },
                     { model: 'Packages', best: 'Common scenarios with predictable scope', range: 'Example: Quick Start = ₹15L' },
                   ].map((r, i) => (
-                    <motion.tr key={r.model} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                    <motion.tr key={r.model} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                       <td className="p-4 font-semibold text-dark-text text-sm">{r.model}</td>
                       <td className="p-4 text-sm text-medium-gray">{r.best}</td>
                       <td className="p-4 text-sm font-mono text-primary font-medium">{r.range}</td>
@@ -597,7 +584,7 @@ export default function LearningTrainingSolutions() {
               {ltsFAQs.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}

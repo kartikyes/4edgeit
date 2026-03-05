@@ -52,18 +52,20 @@ export default function Navbar() {
       >
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Logo />
+            <Logo light={!scrolled} />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-6">
               {navigationItems.map((item) =>
                 item.children ? (
-                  <MegaMenu key={item.label} label={item.label} items={item.children} />
+                  <MegaMenu key={item.label} label={item.label} items={item.children} light={!scrolled} />
                 ) : (
                   <Link
                     key={item.label}
                     to={item.href || '/'}
-                    className="text-sm font-medium text-dark-text hover:text-primary transition-colors nav-link-underline"
+                    className={`text-xl font-medium transition-colors nav-link-underline ${
+                      scrolled ? 'text-dark-text hover:text-primary' : 'text-white hover:text-white/90'
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -73,17 +75,19 @@ export default function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button variant="primary" size="sm" href="/company#contact">
+              <Button variant="primary" size="md" href="/company#contact" className="shadow-lg">
                 Request Demo
               </Button>
-              <Button variant="outline" size="sm" href="/company#contact">
+              <Button variant="green" size="md" href="/company#contact" className="shadow-md">
                 Talk to an Expert
               </Button>
             </div>
 
             {/* Mobile Hamburger */}
             <button
-              className="lg:hidden p-2 text-dark-text hover:text-primary transition-colors"
+              className={`lg:hidden p-2 transition-colors ${
+                scrolled ? 'text-dark-text hover:text-primary' : 'text-white hover:text-white/70'
+              }`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -112,7 +116,7 @@ export default function Navbar() {
                     <Link
                       key={item.label}
                       to={item.href || '/'}
-                      className="block py-3 text-lg font-semibold text-dark-text"
+                      className="block py-3 text-xl font-semibold text-dark-text"
                     >
                       {item.label}
                     </Link>

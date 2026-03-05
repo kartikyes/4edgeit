@@ -10,14 +10,15 @@ import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
-import StatCounter from '../components/ui/StatCounter';
+// StatCounter replaced by shared HeroSection stats
 import AnimatedSection, { StaggerContainer, StaggerItem, FadeScaleItem } from '../components/ui/AnimatedSection';
 import { FAQAccordion, IconWrapper } from '../components/ui/MegaMenu';
 import {
-  heroStats, valuePropositionCards, industryCards, comparisonData,
+  valuePropositionCards, industryCards, comparisonData,
   caseStudies, techHighlights, pricingTiers, resourceCards,
   clientLogos, faqData,
 } from '../data/homeData';
+import HeroSection from '../components/ui/HeroSection';
 
 const iconMap: Record<string, React.ReactNode> = {
   building: <Building2 className="w-6 h-6" />,
@@ -46,169 +47,16 @@ export default function Home() {
 
   return (
     <>
-      {/* ====== HERO SECTION ====== */}
-      <section className="relative min-h-screen flex items-center gradient-hero hero-grid-bg overflow-hidden">
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute top-20 right-10 w-64 h-64 border border-white/5 rounded-full"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-          />
-          <motion.div
-            className="absolute bottom-20 left-10 w-40 h-40 border border-cyan-accent/10 rotate-45"
-            animate={{ rotate: 405 }}
-            transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
-          />
-          <motion.div
-            className="absolute top-1/3 left-1/4 w-3 h-3 bg-cyan-accent/30 rounded-full"
-            animate={{ y: [-20, 20, -20] }}
-            transition={{ duration: 6, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute top-1/2 right-1/3 w-2 h-2 bg-green-accent/30 rounded-full"
-            animate={{ y: [20, -20, 20] }}
-            transition={{ duration: 5, repeat: Infinity }}
-          />
-        </div>
-
-        <div className="max-w-screen-2xl mx-auto px-4 pt-24 pb-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <Badge variant="light" size="md">Enterprise Learning Technology</Badge>
-              </motion.div>
-
-              <motion.h1
-                className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Enterprise Learning Technology Built for India&apos;s Top{' '}
-                <span className="text-gradient">Manufacturers, Banks & Energy Leaders</span>
-              </motion.h1>
-
-              <motion.p
-                className="mt-6 text-lg md:text-xl lg:text-2xl text-white/70 leading-relaxed"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                AI-Powered LMS • Custom Learning Platforms • VR Training • Educational Games • E-learning Development • IT services — One Partner. Complete Solution.
-              </motion.p>
-
-              {/* Social proof */}
-              <motion.div
-                className="mt-6 flex items-center gap-2 text-white/60 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-              >
-                <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0" />
-                <span>Trusted by Bharat Petroleum, Infosys, Hyundai, Toyota & IDFC</span>
-                <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0 ml-4" />
-                <span>80+ Enterprise Clients | 30,000+ Active Users | 200,000+ Course Enrollments</span>
-              </motion.div>
-
-              {/* CTAs */}
-              <motion.div
-                className="mt-8 flex flex-wrap gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-              >
-                <Button variant="primary" size="lg" href="/company#contact">
-                  Request Demo
-                </Button>
-                <Button variant="outline" size="lg" href="/products/k-nest-lms" className="border-white/30 text-white hover:bg-white hover:text-primary-dark">
-                  Explore K-Nest LMS
-                </Button>
-                <Button variant="ghost" size="lg" href="/resources#case-studies" className="text-white hover:bg-white/10">
-                  See Success Stories
-                </Button>
-              </motion.div>
-            </div>
-
-            {/* Right: Abstract Dashboard Visual */}
-            <motion.div
-              className="hidden lg:block relative"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <div className="relative">
-                {/* Dashboard mockup */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                    <div className="flex-1 bg-white/10 rounded h-4 ml-2" />
-                  </div>
-                  <div className="grid grid-cols-3 gap-3 mb-4">
-                    {[
-                      { label: 'Active Users', val: '30,000+ Active Users', color: 'bg-cyan-accent/20 text-cyan-accent' },
-                      { label: 'Completion', val: '91.3%', color: 'bg-green-accent/20 text-green-accent' },
-                      { label: 'AI Score', val: '92%', color: 'bg-primary/20 text-primary' },
-                    ].map((s) => (
-                      <div key={s.label} className={`${s.color} rounded-xl p-4 text-center`}>
-                        <div className="font-mono text-xl font-bold">{s.val}</div>
-                        <div className="text-xs mt-1 opacity-70">{s.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="space-y-2">
-                    {[85, 72, 91, 68].map((w, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-20 text-xs text-white/40">Module {i + 1}</div>
-                        <div className="flex-1 bg-white/10 rounded-full h-2">
-                          <motion.div
-                            className="h-2 rounded-full bg-cyan-accent"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${w}%` }}
-                            transition={{ duration: 1, delay: 1 + i * 0.2 }}
-                          />
-                        </div>
-                        <div className="text-xs text-white/40 font-mono w-10">{w}%</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* VR headset icon floating */}
-                <motion.div
-                  className="absolute -top-4 -right-4 bg-green-accent rounded-xl p-3 shadow-lg"
-                  animate={{ y: [-4, 4, -4] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M20.5 11H3.5C2.67 11 2 11.67 2 12.5v4C2 17.33 2.67 18 3.5 18h4.14c.82 0 1.54-.53 1.79-1.3l.57-1.4.57 1.4c.25.77.97 1.3 1.79 1.3h4.14c.83 0 1.5-.67 1.5-1.5v-4c0-.83-.67-1.5-1.5-1.5zM8.5 15.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm7 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
-                    <path d="M12 7C9.79 7 8 8.79 8 11h8c0-2.21-1.79-4-4-4z"/>
-                  </svg>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Stats Bar */}
-          <motion.div
-            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/10"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-          >
-            {heroStats.map((stat) => (
-              <StatCounter key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} light />
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      {/* ====== HERO SECTION (shared) ====== */}
+      <HeroSection
+        badge="Enterprise Learning Technology"
+        title="Enterprise Learning Technology Built for"
+        titleHighlight="India's Top Manufacturers, Banks & Energy Leaders"
+        subtitle="AI-Powered LMS • Custom Learning Platforms • VR Training • Educational Games • E-learning Development • IT services — One Partner. Complete Solution."
+        proofLine="Trusted by Bharat Petroleum, Infosys, Hyundai, Toyota & IDFC — 80+ Enterprise Clients | 30,000+ Active Users | 200,000+ Course Enrollments"
+        primaryCta={{ label: 'Request Demo', href: '/company#contact' }}
+        secondaryCta={{ label: 'Explore K-Nest LMS', href: '/products/k-nest-lms' }}
+      />
 
       {/* ====== SECTION 1: VALUE PROPOSITION ====== */}
       <section className="py-20 md:py-24 bg-white">
@@ -383,7 +231,7 @@ export default function Home() {
                     <motion.tr
                       key={row.feature}
                       className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'}
-                      initial={{ opacity: 0, y: 15 }}
+                      initial={{ opacity: 1, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}
@@ -631,7 +479,7 @@ export default function Home() {
               {faqData.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}

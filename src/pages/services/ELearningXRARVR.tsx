@@ -11,7 +11,7 @@ import Badge from '../../components/ui/Badge';
 import AnimatedSection, { StaggerContainer, StaggerItem, FadeScaleItem } from '../../components/ui/AnimatedSection';
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import { vrCaseStudies, vrFAQs, vrSolutions, xrHardware } from '../../data/servicesData';
-import HeroSection, { MetricsVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 
 export default function ELearningXRARVR() {
   usePageMeta({
@@ -36,19 +36,6 @@ export default function ELearningXRARVR() {
           { value: 10000, suffix: '+', label: 'Trained in VR' },
           { value: 40, suffix: '%', label: 'Faster Training' },
         ]}
-        visual={
-          <MetricsVisual
-            title="XR Delivery Modes"
-            items={[
-              { icon: <Glasses className="w-5 h-5" />, label: 'VR Immersive Training', value: '50+' },
-              { icon: <Eye className="w-5 h-5" />, label: 'AR Overlay Guides' },
-              { icon: <Brain className="w-5 h-5" />, label: 'Cognitive Simulations' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Safety & Hazard Sims' },
-              { icon: <Users className="w-5 h-5" />, label: 'Employees Trained', value: '10K+' },
-              { icon: <BarChart3 className="w-5 h-5" />, label: 'Retention Improvement', value: '+75%' },
-            ]}
-          />
-        }
       />
 
       {/* OVERVIEW */}
@@ -294,7 +281,7 @@ export default function ELearningXRARVR() {
                       { metric: 'Payback Period', value: '~2 years', note: '₹25L / ₹12L savings' },
                       { metric: 'Accident Reduction', value: '60%', note: 'Based on similar VR implementations' },
                     ].map((r, i) => (
-                      <motion.tr key={r.metric} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                      <motion.tr key={r.metric} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                         <td className="p-3 text-sm font-semibold text-dark-text">{r.metric}</td>
                         <td className="p-3 text-sm font-mono text-primary font-semibold">{r.value}</td>
                         <td className="p-3 text-xs text-medium-gray">{r.note}</td>
@@ -327,7 +314,7 @@ export default function ELearningXRARVR() {
                 </thead>
                 <tbody>
                   {xrHardware.map((h, i) => (
-                    <motion.tr key={h.name} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                    <motion.tr key={h.name} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                       <td className="p-4 font-semibold text-dark-text text-sm">{h.name}</td>
                       <td className="p-4 text-sm"><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2 py-0.5 rounded-full">{h.category}</span></td>
                       <td className="p-4 text-sm font-mono text-primary font-semibold">{h.price}</td>
@@ -381,7 +368,7 @@ export default function ELearningXRARVR() {
               {vrFAQs.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}

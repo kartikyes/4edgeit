@@ -12,7 +12,7 @@ import Badge from '../../components/ui/Badge';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../../components/ui/AnimatedSection';
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import { cspCaseStudies, cspFAQs } from '../../data/servicesData';
-import HeroSection, { MetricsVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 
 export default function CustomSoftwarePlatforms() {
   usePageMeta({
@@ -37,19 +37,6 @@ export default function CustomSoftwarePlatforms() {
           { value: 15, suffix: '+', label: 'Years Experience' },
           { value: 100, suffix: '%', label: 'IP Ownership' },
         ]}
-        visual={
-          <MetricsVisual
-            title="What We Build"
-            items={[
-              { icon: <Code2 className="w-5 h-5" />, label: 'Custom LMS / LXP', value: '50+' },
-              { icon: <Smartphone className="w-5 h-5" />, label: 'Mobile Learning Apps' },
-              { icon: <Globe className="w-5 h-5" />, label: 'B2B2C Platforms' },
-              { icon: <Award className="w-5 h-5" />, label: 'Assessment Systems' },
-              { icon: <Layers className="w-5 h-5" />, label: 'Competency Systems' },
-              { icon: <Users className="w-5 h-5" />, label: 'Full-Stack Team', value: '100%' },
-            ]}
-          />
-        }
       />
 
       {/* OVERVIEW */}
@@ -300,7 +287,7 @@ export default function CustomSoftwarePlatforms() {
                     { layer: 'AI/ML', tech: 'TensorFlow, PyTorch, spaCy NLP, OpenAI APIs' },
                     { layer: 'Security', tech: 'OAuth 2.0, JWT (authentication), AES-256 encryption, Penetration testing, OWASP compliance' },
                   ].map((r, i) => (
-                    <motion.tr key={r.layer} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
+                    <motion.tr key={r.layer} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
                       <td className="p-4 font-semibold text-dark-text text-sm">{r.layer}</td>
                       <td className="p-4 text-sm text-medium-gray">{r.tech}</td>
                     </motion.tr>
@@ -423,7 +410,7 @@ export default function CustomSoftwarePlatforms() {
               {cspFAQs.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}

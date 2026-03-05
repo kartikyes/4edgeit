@@ -1,74 +1,112 @@
-/**
- * HeroSection — Reusable, two-column hero layout
- *
- * Structural guarantee:  text content always on the LEFT, a visual always on the RIGHT.
- * Variation point:       the `visual` prop (slot).  Three ready-made visuals are exported
- *                        as named sub-components so different page groups feel distinct
- *                        without breaking layout consistency.
- *
- * Page-group conventions
- * ─────────────────────────────────────────────────────────────────────────────────────
- *  Home / featured landing  → variant="featured"   + custom visual (DashboardVisual or
- *                                                    fully bespoke JSX passed as visual)
- *  Product pages            → variant="split"      + visual={<DashboardVisual …/>}
- *  Service pages            → variant="split"      + visual={<MetricsVisual …/>}
- *  Info pages (Company, …)  → variant="compact"    (single column; visual not rendered)
- * ─────────────────────────────────────────────────────────────────────────────────────
- */
-
 import { type ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2 } from 'lucide-react';
 import Badge from './Badge';
 import Button from './Button';
-import StatCounter from './StatCounter';
 import MockupPlaceholder from './MockupPlaceHolder';
+import { useCountUp } from '../../hooks/useCountUp';
+import type { StatItem } from '../../types';
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ──────────────────────────────────────────────────────────────────
 
-interface CTAButton {
+interface CtaLink {
   label: string;
   href: string;
 }
 
-export interface HeroStat {
-  value: number;
-  suffix: string;
-  label: string;
-}
-
-/**
- * `featured` → min-h-screen  + 2 equal columns     (home / flagship landing pages)
- * `split`    → min-h-[70vh]  + 2 equal columns     (product & service pages)  ← default
- * `compact`  → min-h-[50vh]  + single left column  (informational pages)
- */
-export type HeroVariant = 'featured' | 'split' | 'compact';
-
-export interface HeroSectionProps {
+interface HeroSectionProps {
   badge?: string;
-  /** Text before the gradient-highlighted portion */
   title: string;
-  /** Appended to `title` inside a text-gradient span */
   titleHighlight?: string;
-  subtitle?: string;
+  subtitle: string;
   proofLine?: string;
-  primaryCta?: CTAButton;
-  secondaryCta?: CTAButton;
-  tertiaryCta?: CTAButton;
-  stats?: HeroStat[];
+  primaryCta: CtaLink;
+  secondaryCta?: CtaLink;
+  stats?: StatItem[];
+  /** Right-column visual override. Defaults to <MockupPlaceholder />. */
   visual?: ReactNode;
-  mockupLabel?: string;
-  variant?: HeroVariant;
-  showDecorations?: boolean;
-  className?: string;
+  /** 'compact' = centred, single-column, no visual panel. */
+  variant?: 'compact';
 }
 
-const minH: Record<HeroVariant, string> = {
-  featured: 'min-h-screen',
-  split: 'min-h-[70vh]',
-  compact: 'min-h-[50vh]',
-};
+// ─── Animated stat counter ───────────────────────────────────────────────────
 
+function AnimatedStat({ value, suffix, label }: StatItem) {
+  const { count, ref } = useCountUp(value, 2000);
+
+  const display =
+    value >= 1_000_000
+      ? (count / 1_000_000).toFixed(count % 1_000_000 === 0 ? 0 : 1) + 'M'
+      : value >= 1_000
+      ? count.toLocaleString()
+      : value % 1 !== 0
+      ? count === value
+        ? value.toString()
+        : count.toFixed(1)
+      : count.toString();
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="text-2xl lg:text-3xl font-extrabold font-heading text-white leading-none">
+        {display}
+        {suffix}
+      </div>
+      <div className="mt-1 text-xs text-white/60 leading-tight">{label}</div>
+    </div>
+  );
+}
+
+
+
+// ─── MetricsVisual (named export used by service pages) ─────────────────────
+
+interface MetricsVisualItem {
+  icon: ReactNode;
+  label: string;
+  value?: string;
+}
+
+interface MetricsVisualProps {
+  title: string;
+  items: MetricsVisualItem[];
+}
+
+export function MetricsVisual({ title, items }: MetricsVisualProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.94 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+      className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 shadow-2xl"
+    >
+      <h3 className="text-sm font-semibold uppercase tracking-widest text-white/50 mb-5">
+        {title}
+      </h3>
+      <div className="grid grid-cols-2 gap-3">
+        {items.map((item, i) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 + i * 0.07 }}
+            className="flex items-center gap-3 rounded-xl bg-white/8 border border-white/10 px-3 py-3 hover:bg-white/12 transition-colors"
+          >
+            <span className="shrink-0 text-primary">{item.icon}</span>
+            <span className="text-xs font-medium text-white/80 leading-snug flex-1">
+              {item.label}
+            </span>
+            {item.value && (
+              <span className="text-xs font-bold text-cyan-accent shrink-0">
+                {item.value}
+              </span>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+// ─── Main component ──────────────────────────────────────────────────────────
 
 export default function HeroSection({
   badge,
@@ -78,255 +116,196 @@ export default function HeroSection({
   proofLine,
   primaryCta,
   secondaryCta,
-  tertiaryCta,
   stats,
   visual,
-  mockupLabel = 'Interactive Preview',
-  variant = 'split',
-  showDecorations,
-  className = '',
+  variant,
 }: HeroSectionProps) {
-  const isSplit = variant !== 'compact';
-  const decorations = showDecorations ?? variant === 'featured';
-
-  return (
-    <section
-      className={`relative ${minH[variant]} flex items-center gradient-hero hero-grid-bg overflow-hidden ${className}`}
-    >
-      {/* Floating geometric decorations */}
-      {decorations && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-          <motion.div
-            className="absolute top-20 right-10 w-64 h-64 border border-white/5 rounded-full"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-          />
-          <motion.div
-            className="absolute bottom-20 left-10 w-40 h-40 border border-cyan-accent/10 rotate-45"
-            animate={{ rotate: 405 }}
-            transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
-          />
-          <motion.div
-            className="absolute top-1/3 left-1/4 w-3 h-3 bg-cyan-accent/30 rounded-full"
-            animate={{ y: [-20, 20, -20] }}
-            transition={{ duration: 6, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute top-1/2 right-1/3 w-2 h-2 bg-green-accent/30 rounded-full"
-            animate={{ y: [20, -20, 20] }}
-            transition={{ duration: 5, repeat: Infinity }}
-          />
+  // ── Compact variant: centred, no right panel ────────────────────────────
+  if (variant === 'compact') {
+    return (
+      <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24">
+        {/* Decorative glow */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         </div>
-      )}
 
-      {/* Inner container */}
-      <div className="max-w-screen-2xl mx-auto px-4 pt-24 pb-12 relative z-10 w-full">
-        <div
-          className={
-            isSplit
-              ? 'grid lg:grid-cols-2 gap-12 items-center'
-              : 'max-w-4xl'
-          }
-        >
-          {/* ── LEFT: Text content ── */}
-          <div>
+        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            className="max-w-3xl mx-auto"
+          >
+            {badge && (
+              <Badge variant="light" size="md" className="mb-5">
+                {badge}
+              </Badge>
+            )}
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-white leading-tight">
+              {title}
+              {titleHighlight && (
+                <>
+                  {' '}
+                  <span className="text-gradient">{titleHighlight}</span>
+                </>
+              )}
+            </h1>
+
+            <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+              {subtitle}
+            </p>
+
+            {proofLine && (
+              <p className="mt-4 text-sm text-white/50 font-mono tracking-wide">
+                {proofLine}
+              </p>
+            )}
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-8 flex flex-wrap gap-4 justify-center"
+            >
+              <Button variant="primary" size="lg" href={primaryCta.href}>
+                {primaryCta.label}
+              </Button>
+              {secondaryCta && (
+                <Button
+                  variant="outline"
+                  size="lg"
+                  href={secondaryCta.href}
+                  className="border-white text-white hover:bg-white hover:text-primary-dark"
+                >
+                  {secondaryCta.label}
+                </Button>
+              )}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
+
+  // ── Standard variant: text-left, visual-right ───────────────────────────
+  return (
+    <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-20 md:pb-28 lg:pb-32">
+      {/* Background glow orbs */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-150 w-150 rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-100 w-100 rounded-full bg-cyan-accent/8 blur-3xl" />
+
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+
+          {/* ── Left column: text content ─────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col"
+          >
             {badge && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
               >
-                <Badge variant="light" size="md">{badge}</Badge>
+                <Badge variant="light" size="md" className="mb-5">
+                  {badge}
+                </Badge>
               </motion.div>
             )}
 
             <motion.h1
-              className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-heading"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl xl:text-6xl font-extrabold font-heading text-white leading-tight"
             >
               {title}
               {titleHighlight && (
-                <>{' '}<span className="text-gradient">{titleHighlight}</span></>
+                <>
+                  <br />
+                  <span className="text-gradient">{titleHighlight}</span>
+                </>
               )}
             </motion.h1>
 
-            {subtitle && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-5 text-base md:text-lg text-white/70 leading-relaxed max-w-xl"
+            >
+              {subtitle}
+            </motion.p>
+
+            {proofLine && (
               <motion.p
-                className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ duration: 0.5, delay: 0.28 }}
+                className="mt-4 text-sm text-white/50 font-mono tracking-wide"
               >
-                {subtitle}
+                {proofLine}
               </motion.p>
             )}
 
-            {proofLine && (
-              <motion.div
-                className="mt-4 flex items-center gap-2 text-white/60 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-              >
-                <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0" />
-                <span>{proofLine}</span>
-              </motion.div>
-            )}
-
-            {(primaryCta || secondaryCta || tertiaryCta) && (
-              <motion.div
-                className="mt-8 flex flex-wrap gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                {primaryCta && (
-                  <Button variant="primary" size="lg" href={primaryCta.href}>
-                    {primaryCta.label}
-                  </Button>
-                )}
-                {secondaryCta && (
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    href={secondaryCta.href}
-                    className="border-white/30 text-white hover:bg-white hover:text-primary-dark"
-                  >
-                    {secondaryCta.label}
-                  </Button>
-                )}
-                {tertiaryCta && (
-                  <Button variant="ghost" size="lg" href={tertiaryCta.href}>
-                    {tertiaryCta.label}
-                  </Button>
-                )}
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+              <Button variant="primary" size="lg" href={primaryCta.href}>
+                {primaryCta.label}
+              </Button>
+              {secondaryCta && (
+                <Button
+                  variant="outline"
+                  size="lg"
+                  href={secondaryCta.href}
+                  className="border-white text-white hover:bg-white hover:text-primary-dark"
+                >
+                  {secondaryCta.label}
+                </Button>
+              )}
+            </motion.div>
 
             {stats && stats.length > 0 && (
               <motion.div
-                className="mt-12 grid gap-6 max-w-lg"
-                style={{ gridTemplateColumns: `repeat(${Math.min(stats.length, 4)}, minmax(0,1fr))` }}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="mt-10 grid gap-x-8 gap-y-4 pt-8 border-t border-white/10"
+                style={{ gridTemplateColumns: `repeat(${Math.min(stats.length, 4)}, minmax(0, 1fr))` }}
               >
                 {stats.map((s) => (
-                  <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} light />
+                  <AnimatedStat key={s.label} {...s} />
                 ))}
               </motion.div>
             )}
-          </div>
 
-          {/* ── RIGHT: Visual slot ── */}
-          {isSplit && (
-            <motion.div
-              className="hidden lg:block"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              {visual ?? <MockupPlaceholder label={mockupLabel} />}
-            </motion.div>
-          )}
+          </motion.div>
+
+          {/* ── Right column: visual / mockup ─────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="relative flex items-center justify-center w-full lg:-mt-16"
+          >
+            {visual ?? (
+              <MockupPlaceholder
+                label="Product Screenshot"
+                className="w-full"
+              />
+            )}
+          </motion.div>
+
         </div>
       </div>
     </section>
-  );
-}
-
-interface DashboardVisualProps {
-  stats?: Array<{ value: string; label: string; colorClass: string }>;
-  bars?: Array<{ label: string; percent: number }>;
-  addressBarText?: string;
-}
-
-export function DashboardVisual({
-  stats = [
-    { value: '30,000+', label: 'Active Users',  colorClass: 'bg-cyan-accent/20 text-cyan-accent'  },
-    { value: '91.3%',   label: 'Completion',    colorClass: 'bg-green-accent/20 text-green-accent' },
-    { value: '99.9%',   label: 'Uptime',        colorClass: 'bg-primary/20 text-primary'           },
-  ],
-  bars = [
-    { label: 'Safety Training',     percent: 91 },
-    { label: 'Compliance Module',   percent: 85 },
-    { label: 'Leadership Program',  percent: 73 },
-    { label: 'Product Knowledge',   percent: 96 },
-  ],
-  addressBarText = 'k-nest.4edgeit.com/dashboard',
-}: DashboardVisualProps) {
-  return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-      {/* Browser chrome */}
-      <div className="flex items-center gap-2 mb-4">
-        <div className="w-3 h-3 rounded-full bg-red-400/70" />
-        <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
-        <div className="w-3 h-3 rounded-full bg-green-400/70" />
-        <div className="flex-1 bg-white/10 rounded h-5 ml-2 flex items-center px-2">
-          <span className="text-white/30 text-xs font-mono truncate">{addressBarText}</span>
-        </div>
-      </div>
-
-      {/* Stat pills */}
-      <div className="grid grid-cols-3 gap-3 mb-4">
-        {stats.map((s) => (
-          <div key={s.label} className={`${s.colorClass} rounded-xl p-3 text-center`}>
-            <div className="font-mono text-lg font-bold leading-tight">{s.value}</div>
-            <div className="text-xs mt-0.5 opacity-70">{s.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Progress bars */}
-      <div className="space-y-2.5">
-        {bars.map((b, i) => (
-          <div key={b.label} className="flex items-center gap-3">
-            <div className="w-28 text-xs text-white/40 truncate">{b.label}</div>
-            <div className="flex-1 bg-white/10 rounded-full h-2">
-              <motion.div
-                className="h-2 rounded-full bg-gradient-to-r from-cyan-accent to-primary"
-                initial={{ width: 0 }}
-                animate={{ width: `${b.percent}%` }}
-                transition={{ duration: 1, delay: 0.8 + i * 0.1 }}
-              />
-            </div>
-            <span className="text-xs text-white/40 font-mono w-8">{b.percent}%</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-interface MetricsVisualProps {
-  title?: string;
-  items: Array<{ icon: ReactNode; label: string; value?: string }>;
-}
-
-export function MetricsVisual({ title = 'Key Capabilities', items }: MetricsVisualProps) {
-  return (
-    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-      <p className="text-white/50 text-sm font-semibold tracking-wider uppercase mb-4">{title}</p>
-      <div className="grid grid-cols-2 gap-3">
-        {items.slice(0, 6).map((item) => (
-          <div
-            key={item.label}
-            className="flex items-center gap-3 bg-white/5 rounded-xl p-3 border border-white/5"
-          >
-            <div className="text-cyan-accent shrink-0">{item.icon}</div>
-            <div>
-              {item.value && (
-                <div className="font-mono text-base font-bold text-white leading-tight">
-                  {item.value}
-                </div>
-              )}
-              <div className="text-xs text-white/60">{item.label}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }

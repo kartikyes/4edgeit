@@ -41,7 +41,7 @@ export default function AnimatedSection({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, x, y }}
+      initial={{ opacity: 1, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6, delay, ease: 'easeOut' }}
@@ -85,7 +85,7 @@ export function StaggerItem({ children, className = '' }: StaggerItemProps) {
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 1, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
       }}
     >
@@ -100,7 +100,7 @@ export function FadeScaleItem({ children, className = '' }: StaggerItemProps) {
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, scale: 0.85 },
+        hidden: { opacity: 1, scale: 0.85 },
         visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
       }}
     >
@@ -120,7 +120,7 @@ export function AlternatingSlideItem({
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, x: fromLeft ? -50 : 50 },
+        hidden: { opacity: 1, x: fromLeft ? -50 : 50 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
       }}
     >

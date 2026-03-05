@@ -47,15 +47,15 @@ export default function MegaMenu({ label, items, mobile = false, light = false }
         >
           {label}
           <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-6 h-6" />
           </motion.span>
         </button>
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
+              initial={{ height: 0, opacity: 1 }}
               animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
+              exit={{ height: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
@@ -86,21 +86,21 @@ export default function MegaMenu({ label, items, mobile = false, light = false }
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors nav-link-underline ${light ? 'text-white/90 hover:text-white' : 'text-dark-text hover:text-primary'}`}
+        className={`flex items-center gap-1 py-2 text-base lg:text-lg font-medium transition-colors nav-link-underline ${light ? 'text-white/90 hover:text-white' : 'text-dark-text hover:text-primary'}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {label}
         <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-          <ChevronDown className="w-4 h-4" />
+          <ChevronDown className="w-6 h-6" />
         </motion.span>
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scaleY: 0.95, y: -5 }}
+            initial={{ opacity: 1, scaleY: 0.95, y: -5 }}
             animate={{ opacity: 1, scaleY: 1, y: 0 }}
-            exit={{ opacity: 0, scaleY: 0.95, y: -5 }}
+            exit={{ opacity: 1, scaleY: 0.95, y: -5 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             style={{ transformOrigin: 'top' }}
             className="absolute top-full left-0 min-w-[280px] mt-1 bg-white rounded-xl shadow-xl border border-border-gray p-3 z-50"
@@ -109,7 +109,7 @@ export default function MegaMenu({ label, items, mobile = false, light = false }
               <Link
                 key={item.href}
                 to={item.href}
-                className="block px-4 py-3 rounded-lg hover:bg-light-gray transition-colors group"
+                className="block px-4 py-3 rounded-lg hover:bg-light-gray transition-colors group text-base lg:text-lg"
                 onClick={() => setIsOpen(false)}
               >
                 <div className="font-medium text-dark-text group-hover:text-primary transition-colors">
@@ -154,9 +154,9 @@ export function FAQAccordion({ question, answer, isOpen, onToggle }: FAQAccordio
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 1 }}
             animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            exit={{ height: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >

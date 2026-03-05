@@ -12,10 +12,10 @@ import Badge from '../../components/ui/Badge';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../../components/ui/AnimatedSection';
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import {
-  knestHeroStats, knestQuickBenefits, knestFeatures, knestTechSpecs,
+  knestQuickBenefits, knestFeatures, knestTechSpecs,
   deploymentOptions, knestComparison, knestCaseStudies, knestFAQs,
 } from '../../data/productsData';
-import HeroSection, { DashboardVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 import type { ReactNode } from 'react';
 
 const iconMap: Record<string, ReactNode> = {
@@ -52,23 +52,6 @@ export default function KNestLMS() {
         proofLine="70+ Enterprises | 30,000+ Active Users | ISO 27001 Certified"
         primaryCta={{ label: 'Request Live Demo', href: '/company#contact' }}
         secondaryCta={{ label: 'Start 30-Day Free Trial', href: '/company#contact' }}
-        stats={knestHeroStats}
-        visual={
-          <DashboardVisual
-            addressBarText="k-nest.4edgeit.com/dashboard"
-            stats={[
-              { value: '30K+', label: 'Active Learners', colorClass: 'bg-cyan-accent/20 text-cyan-accent' },
-              { value: '91%', label: 'Completion Rate', colorClass: 'bg-green-accent/20 text-green-accent' },
-              { value: '99.9%', label: 'SLA Uptime', colorClass: 'bg-primary/20 text-primary' },
-            ]}
-            bars={[
-              { label: 'Safety & Compliance', percent: 91 },
-              { label: 'Product Knowledge', percent: 96 },
-              { label: 'Leadership Program', percent: 73 },
-              { label: 'Onboarding Tracks', percent: 85 },
-            ]}
-          />
-        }
       />
 
       {/* ====== STATS BAR ====== */}

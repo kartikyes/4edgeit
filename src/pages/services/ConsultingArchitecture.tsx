@@ -13,7 +13,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '../../components
 import { FAQAccordion, IconWrapper } from '../../components/ui/MegaMenu';
 import { consultingCaseStudies, consultingFAQs, consultingServicesData, consultingScenarios, consultingApproach, consultingPricing } from '../../data/servicesData';
 import type { ReactNode } from 'react';
-import HeroSection, { MetricsVisual } from '../../components/ui/HeroSection';
+import HeroSection from '../../components/ui/HeroSection';
 
 export default function ConsultingArchitecture() {
   usePageMeta({
@@ -47,19 +47,6 @@ export default function ConsultingArchitecture() {
           { value: 15, suffix: '+', label: 'Years Experience' },
           { value: 50, suffix: 'Cr+', label: 'Client Savings' },
         ]}
-        visual={
-          <MetricsVisual
-            title="Consulting Specialties"
-            items={[
-              { icon: <Search className="w-5 h-5" />, label: 'Platform Selection', value: '50+' },
-              { icon: <Lightbulb className="w-5 h-5" />, label: 'L&D Strategy' },
-              { icon: <Layers className="w-5 h-5" />, label: 'Solution Architecture' },
-              { icon: <Settings className="w-5 h-5" />, label: 'Tech Integration' },
-              { icon: <Shield className="w-5 h-5" />, label: 'Compliance Systems' },
-              { icon: <BarChart3 className="w-5 h-5" />, label: 'Client ROI Savings', value: '₹50Cr+' },
-            ]}
-          />
-        }
       />
 
       {/* WHEN YOU NEED CONSULTING */}
@@ -246,7 +233,7 @@ export default function ConsultingArchitecture() {
               {consultingFAQs.map((faq, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}
