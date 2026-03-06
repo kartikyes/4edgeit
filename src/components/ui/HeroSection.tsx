@@ -123,13 +123,13 @@ export default function HeroSection({
   // ── Compact variant: centred, no right panel ────────────────────────────
   if (variant === 'compact') {
     return (
-      <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24">
+      <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 pb-0">
         {/* Decorative glow */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center pb-16 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function HeroSection({
               </Badge>
             )}
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-white leading-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold font-heading text-white leading-tight">
               {title}
               {titleHighlight && (
                 <>
@@ -184,19 +184,35 @@ export default function HeroSection({
             </motion.div>
           </motion.div>
         </div>
+
+        {/* ── Company trust stats ─────────────────────────────────────── */}
+        <div className="relative z-10 border-t border-white/10 mt-4">
+          <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { value: 70,     suffix: '+',  label: 'Enterprise Clients'  },
+                { value: 30000,  suffix: '+',  label: 'Active Users'        },
+                { value: 200000, suffix: '+',  label: 'Course Enrollments'  },
+                { value: 99.9,   suffix: '%',  label: 'Uptime SLA'          },
+              ].map((s) => (
+                <AnimatedStat key={s.label} {...s} />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     );
   }
 
   // ── Standard variant: text-left, visual-right ───────────────────────────
   return (
-    <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-20 md:pb-28 lg:pb-32">
+    <section className="gradient-hero hero-grid-bg relative overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-0">
       {/* Background glow orbs */}
       <div className="pointer-events-none absolute -top-32 -right-32 h-150 w-150 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-100 w-100 rounded-full bg-cyan-accent/8 blur-3xl" />
 
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-16 md:pb-24 lg:pb-28">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center">
 
           {/* ── Left column: text content ─────────────────────────────── */}
           <motion.div
@@ -304,6 +320,22 @@ export default function HeroSection({
             )}
           </motion.div>
 
+        </div>
+      </div>
+
+      {/* ── Company trust stats ─────────────────────────────────────── */}
+      <div className="relative z-10 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: 70,     suffix: '+',  label: 'Enterprise Clients'  },
+              { value: 30000,  suffix: '+',  label: 'Active Users'        },
+              { value: 200000, suffix: '+',  label: 'Course Enrollments'  },
+              { value: 99.9,   suffix: '%',  label: 'Uptime SLA'          },
+            ].map((s) => (
+              <AnimatedStat key={s.label} {...s} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

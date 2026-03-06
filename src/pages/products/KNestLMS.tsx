@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import {
   Brain, Server, Trophy, Layers, BarChart3, Smartphone,
   Shield, Edit3, Award, Plug, CheckCircle2, X as XIcon, Rocket,
@@ -55,32 +55,9 @@ export default function KNestLMS() {
         secondaryCta={{ label: 'Start 30-Day Free Trial', href: '/company#contact' }}
       />
 
-      {/* ====== STATS BAR ====== */}
-      <section className="bg-navy py-12">
-        <div className="max-w-screen-2xl mx-auto px-4">
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {[
-              { value: '70+', label: 'Enterprise Clients' },
-              { value: '30,000+', label: 'Active Users' },
-              { value: '200,000+', label: 'Course Completions (92% avg)' },
-              { value: '99.9%', label: 'Uptime SLA' },
-              { value: '48-Hour', label: 'Deployment from Contract' },
-              { value: '92%', label: 'AI Assessment Accuracy' },
-            ].map((s) => (
-              <StaggerItem key={s.label}>
-                <div className="space-y-1">
-                  <div className="text-2xl font-extrabold font-heading text-primary">{s.value}</div>
-                  <div className="text-xs text-medium-gray leading-tight">{s.label}</div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
       {/* ====== QUICK OVERVIEW ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="OVERVIEW" title="Everything You Need, Nothing You Don't" subtitle="K-Nest is India's most advanced enterprise learning management system, combining AI-powered intelligence with unmatched flexibility.
               Whether you need a ready-to-deploy platform or a fully customised solution, K-Nest scales from 50 to 50,000+ users without compromising performance or security."/>
@@ -244,7 +221,7 @@ export default function KNestLMS() {
 
       {/* ====== TECHNICAL SPECS ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="TECHNICAL" title="Built for Enterprise Performance" />
           </AnimatedSection>
@@ -293,7 +270,7 @@ export default function KNestLMS() {
 
       {/* ====== DEPLOYMENT OPTIONS ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="DEPLOYMENT" title="Choose Your Deployment Model" subtitle="Flexible options to match your security, compliance, and infrastructure requirements." />
           </AnimatedSection>
@@ -327,7 +304,7 @@ export default function KNestLMS() {
 
       {/* ====== IMPLEMENTATION TIMELINE ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="TIMELINE" title="From Decision to Go-Live" subtitle="Two proven implementation paths based on your deployment choice." />
           </AnimatedSection>
@@ -379,7 +356,7 @@ export default function KNestLMS() {
 
       {/* ====== SUPPORT & TRAINING ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SUPPORT" title="Support & Training" subtitle="Every plan includes implementation support. Premium add-ons available." />
           </AnimatedSection>
@@ -414,7 +391,7 @@ export default function KNestLMS() {
 
       {/* ====== CASE STUDIES ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SUCCESS STORIES" title="Enterprise Results at Scale" />
           </AnimatedSection>
@@ -457,29 +434,29 @@ export default function KNestLMS() {
 
       {/* ====== COMPARISON TABLE ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="COMPARISON" title="K-Nest vs Generic LMS Solutions" />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <table className="w-full min-w-140 bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
                 <thead>
                   <tr className="bg-primary-dark text-white">
-                    <th className="text-left p-4 font-heading font-semibold">Feature</th>
-                    <th className="text-left p-4 font-heading font-semibold">Generic LMS</th>
-                    <th className="text-left p-4 font-heading font-semibold bg-primary">K-Nest LMS</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[28%]">Feature</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[36%]">Generic LMS</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[36%] bg-primary">K-Nest LMS</th>
                   </tr>
                 </thead>
                 <tbody>
                   {knestComparison.map((row, i) => (
                     <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'}>
-                      <td className="p-4 font-semibold text-dark-text text-sm">{row.feature}</td>
-                      <td className="p-4 text-sm text-medium-gray">
-                        <span className="flex items-start gap-2"><XIcon className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />{row.typical}</span>
+                      <td className="p-3 md:p-4 font-semibold text-dark-text text-xs md:text-sm">{row.feature}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-medium-gray">
+                        <span className="flex items-start gap-1.5"><XIcon className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />{row.typical}</span>
                       </td>
-                      <td className="p-4 text-sm text-dark-text bg-green-accent/5">
-                        <span className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-green-accent shrink-0 mt-0.5" />{row.fourEdge}</span>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-dark-text bg-green-accent/5">
+                        <span className="flex items-start gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-green-accent shrink-0 mt-0.5" />{row.fourEdge}</span>
                       </td>
                     </tr>
                   ))}
@@ -492,7 +469,7 @@ export default function KNestLMS() {
 
       {/* ====== WHY K-NEST ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY K-NEST" title="5 Reasons to Choose K-Nest LMS" />
           </AnimatedSection>
@@ -518,7 +495,7 @@ export default function KNestLMS() {
 
       {/* ====== GETTING STARTED ====== */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading title="Get Started with K-Nest LMS" subtitle="Three simple paths to transform your enterprise learning." light />
           </AnimatedSection>
@@ -544,7 +521,7 @@ export default function KNestLMS() {
 
       {/* ====== FAQ ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -560,7 +537,7 @@ export default function KNestLMS() {
 
       {/* ====== DOWNLOADS ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="RESOURCES" title="Downloadable Resources" />
           </AnimatedSection>

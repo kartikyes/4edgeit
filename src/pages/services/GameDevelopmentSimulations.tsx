@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   CheckCircle2, Gamepad2, Brain, Trophy, Target, Puzzle,
@@ -42,16 +42,11 @@ export default function GameDevelopmentSimulations() {
         proofLine="100+ Games Developed | 2M+ Players Trained | 90% Avg. Completion Rate"
         primaryCta={{ label: 'See Game Portfolio', href: '/company#contact' }}
         secondaryCta={{ label: 'Discuss Your Project', href: '/company#contact' }}
-        stats={[
-          { value: 100, suffix: '+', label: 'Games Developed' },
-          { value: 2, suffix: 'M+', label: 'Players Trained' },
-          { value: 90, suffix: '%', label: 'Avg. Completion Rate' },
-        ]}
       />
 
       {/* OVERVIEW */}
       <section className="py-14 md:py-20 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-medium-gray mb-8">
@@ -72,7 +67,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* WHY SERIOUS GAMES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY GAMES" title="Why Serious Games Work" subtitle="Research-backed benefits of game-based learning in corporate training." />
           </AnimatedSection>
@@ -85,7 +80,7 @@ export default function GameDevelopmentSimulations() {
             ].map((item) => (
               <FadeScaleItem key={item.title}>
                 <Card variant="feature" className="text-center h-full">
-                  <IconWrapper>{item.icon}</IconWrapper>
+                  <IconWrapper className="mx-auto">{item.icon}</IconWrapper>
                   <div className="font-mono text-3xl font-bold text-primary mt-3">{item.stat}</div>
                   <h3 className="font-bold font-heading text-dark-text mt-2">{item.title}</h3>
                   <p className="text-sm text-medium-gray mt-2">{item.desc}</p>
@@ -98,7 +93,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* GAME TYPES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="GAME TYPES" title="Types of Serious Games We Build" subtitle="From simple gamification layers to full 3D simulation environments." />
           </AnimatedSection>
@@ -154,7 +149,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* GAMIFICATION SERVICES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="GAMIFICATION" title="Gamification Services" subtitle="Not ready for a full game? We add powerful gamification elements to your existing training platforms. Investment: ₹3L – ₹15L depending on platform and complexity." />
           </AnimatedSection>
@@ -200,7 +195,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* DEVELOPMENT PROCESS */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PROCESS" title="Game Development Process" subtitle="From concept to playtest — a proven methodology for effective serious games." />
           </AnimatedSection>
@@ -227,7 +222,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* TECH & PLATFORMS */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="TECHNOLOGY" title="Technology & Platforms" />
           </AnimatedSection>
@@ -264,7 +259,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* PRICING */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PRICING" title="Pricing Guide" />
           </AnimatedSection>
@@ -301,7 +296,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* CASE STUDIES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CASE STUDIES" title="Featured Game Projects" />
           </AnimatedSection>
@@ -329,7 +324,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* FAQ */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -353,7 +348,7 @@ export default function GameDevelopmentSimulations() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Ready to Gamify Your Training?" subtitle="See a demo of our serious games or discuss your project requirements." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

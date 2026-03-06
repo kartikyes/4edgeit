@@ -1,8 +1,6 @@
 import { Link } from 'react-router';
 import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Youtube, Facebook } from 'lucide-react';
 import LogoImg from '../../assets/4edge.png';
-import StatCounter from '../ui/StatCounter';
-import AnimatedSection from '../ui/AnimatedSection';
 
 const footerLinks = {
   products: [
@@ -27,37 +25,11 @@ const footerLinks = {
   ],
 };
 
-const stats = [
-  { value: 70, suffix: '+', label: 'Clients' },
-  { value: 30000, suffix: '+', label: 'Users' },
-  { value: 200000, suffix: '+', label: 'Enrollments' },
-  { value: 99.9, suffix: '%', label: 'Uptime' },
-];
-
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      {/* Stats Bar */}
-      <AnimatedSection>
-        <div className="border-b border-white/10">
-          <div className="max-w-screen-2xl mx-auto px-4 py-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat) => (
-                <StatCounter
-                  key={stat.label}
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                  light
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
       {/* Main Footer */}
-      <div className="max-w-screen-2xl mx-auto px-4 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Col 1: Logo & Info */}
           <div className="lg:col-span-1">
@@ -85,7 +57,7 @@ export default function Footer() {
 
           {/* Col 2: Products */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white/40 mb-4">Products</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-4">Products</h4>
             <ul className="space-y-3">
               {footerLinks.products.map((link) => (
                 <li key={link.href}>
@@ -99,7 +71,7 @@ export default function Footer() {
 
           {/* Col 3: Services */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white/40 mb-4">Services</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
@@ -113,7 +85,7 @@ export default function Footer() {
 
           {/* Col 4: Company */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white/40 mb-4">Company</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
@@ -127,7 +99,7 @@ export default function Footer() {
 
           {/* Col 5: Contact Info */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white/40 mb-4">Contact</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-4">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 mt-1 text-cyan-accent shrink-0" />
@@ -149,7 +121,7 @@ export default function Footer() {
 
             {/* Newsletter */}
             <div className="mt-6">
-              <h5 className="text-sm font-semibold text-white/80 mb-3">Stay Updated</h5>
+              <h5 className="text-sm font-semibold text-white mb-3">Stay Updated</h5>
               <div className="flex gap-2">
                 <input
                   type="email"
@@ -167,8 +139,8 @@ export default function Footer() {
 
       {/* Certification Badges */}
       <div className="border-t border-white/10">
-        <div className="max-w-screen-2xl mx-auto px-4 py-6">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/40">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/60">
             <span className="flex items-center gap-1.5">🛡️ ISO 27001 Certified</span>
             <span className="flex items-center gap-1.5">🔒 GDPR Compliant</span>
             <span className="flex items-center gap-1.5">☁️ AWS Partner</span>
@@ -178,9 +150,9 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-white/5 bg-white/[0.02]">
-        <div className="max-w-screen-2xl mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/30">
+      <div className="border-t border-white/5 bg-white/2">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/60">
             <span>© {new Date().getFullYear()} 4Edge IT Solutions. All rights reserved.</span>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>

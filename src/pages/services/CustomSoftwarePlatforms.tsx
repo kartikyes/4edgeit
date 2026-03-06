@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   CheckCircle2, Code2, Layers, Smartphone, Award,
@@ -32,16 +32,11 @@ export default function CustomSoftwarePlatforms() {
         proofLine="50+ Custom Platforms Built | 15+ Years Development Experience | Full-Stack Team"
         primaryCta={{ label: 'Discuss Your Project', href: '/company#contact' }}
         secondaryCta={{ label: 'View Portfolio', href: '/resources' }}
-        stats={[
-          { value: 50, suffix: '+', label: 'Platforms Built' },
-          { value: 15, suffix: '+', label: 'Years Experience' },
-          { value: 100, suffix: '%', label: 'IP Ownership' },
-        ]}
       />
 
       {/* OVERVIEW */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
@@ -77,7 +72,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* CORE SERVICES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICES" title="Custom Development Services" subtitle="Six specialized service areas covering every aspect of learning technology development." />
           </AnimatedSection>
@@ -230,7 +225,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* DEVELOPMENT PROCESS */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PROCESS" title="Our Development Process" subtitle="Agile methodology with bi-weekly demos and continuous feedback loops." />
           </AnimatedSection>
@@ -265,17 +260,17 @@ export default function CustomSoftwarePlatforms() {
 
       {/* TECHNOLOGY STACK */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="TECHNOLOGY" title="Our Technology Stack" />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <table className="w-full min-w-120 bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
                 <thead>
                   <tr className="bg-primary-dark text-white">
-                    <th className="text-left p-4 font-heading font-semibold">Layer</th>
-                    <th className="text-left p-4 font-heading font-semibold">Technologies</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[28%]">Layer</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm">Technologies</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -288,8 +283,8 @@ export default function CustomSoftwarePlatforms() {
                     { layer: 'Security', tech: 'OAuth 2.0, JWT (authentication), AES-256 encryption, Penetration testing, OWASP compliance' },
                   ].map((r, i) => (
                     <motion.tr key={r.layer} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
-                      <td className="p-4 font-semibold text-dark-text text-sm">{r.layer}</td>
-                      <td className="p-4 text-sm text-medium-gray">{r.tech}</td>
+                      <td className="p-3 md:p-4 font-semibold text-dark-text text-xs md:text-sm">{r.layer}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-medium-gray">{r.tech}</td>
                     </motion.tr>
                   ))}
                 </tbody>
@@ -301,7 +296,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* PRICING */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PRICING" title="Project Pricing Guide" />
           </AnimatedSection>
@@ -347,7 +342,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* WHY 4EDGE */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY US" title="Why Choose 4Edge for Custom Development" />
           </AnimatedSection>
@@ -373,7 +368,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* CASE STUDIES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CASE STUDIES" title="Featured Projects" />
           </AnimatedSection>
@@ -401,7 +396,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* FAQ */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -425,7 +420,7 @@ export default function CustomSoftwarePlatforms() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Ready to Build Your Custom Platform?" subtitle="Share your requirements and get a detailed proposal within 48 hours." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import {
   CheckCircle2, MapPin, Phone, Mail, Globe, Award,
   Users, Target, Shield, Lightbulb, Heart
@@ -42,17 +42,11 @@ export default function Company() {
         subtitle="For 15+ years, 4Edge IT Solutions has been India's trusted partner for learning technology — helping enterprises train, upskill, and transform their workforce."
         primaryCta={{ label: 'Contact Us', href: '#contact' }}
         secondaryCta={{ label: 'Our Story', href: '#about' }}
-        stats={[
-          { value: 200, suffix: '+', label: 'Clients' },
-          { value: 2, suffix: 'M+', label: 'Learners' },
-          { value: 15, suffix: '+', label: 'Years' },
-          { value: 500, suffix: '+', label: 'Projects' },
-        ]}
       />
 
       {/* ABOUT US */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -87,7 +81,7 @@ export default function Company() {
 
       {/* WHY 4EDGE */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY 4EDGE" title="Why Enterprises Choose Us" />
           </AnimatedSection>
@@ -102,7 +96,7 @@ export default function Company() {
             ].map((reason) => (
               <StaggerItem key={reason.title}>
                 <Card variant="feature" className="h-full">
-                  <IconWrapper>{reason.icon}</IconWrapper>
+                  <IconWrapper className="mx-auto">{reason.icon}</IconWrapper>
                   <h3 className="font-bold font-heading text-dark-text mt-3">{reason.title}</h3>
                   <p className="text-sm text-medium-gray mt-2">{reason.desc}</p>
                 </Card>
@@ -114,7 +108,7 @@ export default function Company() {
 
       {/* CERTIFICATIONS */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="TRUST" title="Certifications & Compliance" />
           </AnimatedSection>
@@ -142,7 +136,7 @@ export default function Company() {
 
       {/* CLIENT LOGOS */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CLIENTS" title="Trusted by Industry Leaders" />
           </AnimatedSection>
@@ -160,7 +154,7 @@ export default function Company() {
 
       {/* CAREERS */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -210,7 +204,7 @@ export default function Company() {
 
       {/* CONTACT */}
       <section id="contact" className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CONTACT" title="Get in Touch" subtitle="Have a project in mind? Let's talk about how we can help." />
           </AnimatedSection>

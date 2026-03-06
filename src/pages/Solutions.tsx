@@ -1,4 +1,4 @@
-import {
+﻿import {
   Factory, HeartPulse, Briefcase, GraduationCap, Rocket, Building2,
   CheckCircle2
 } from 'lucide-react';
@@ -79,17 +79,11 @@ export default function Solutions() {
         subtitle="Industry-specific expertise combined with flexible technology. Whether you're in Manufacturing, Healthcare, Corporate L&D, or EdTech — we've done it before."
         primaryCta={{ label: 'Talk to an Expert', href: '/company#contact' }}
         secondaryCta={{ label: 'See All Services', href: '/services/learning-training' }}
-        stats={[
-          { value: 200, suffix: '+', label: 'Clients' },
-          { value: 10, suffix: '+', label: 'Industries' },
-          { value: 50, suffix: '+', label: 'Platforms' },
-          { value: 15, suffix: '+', label: 'Years' },
-        ]}
       />
 
       {/* SOLUTIONS GRID */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="BY INDUSTRY" title="Industry Solutions" subtitle="Deep domain expertise across key verticals." />
           </AnimatedSection>
@@ -129,7 +123,7 @@ export default function Solutions() {
 
       {/* PACKAGES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PACKAGES" title="Pre-Built Solution Packages" subtitle="Get started faster with our ready-to-deploy learning packages." />
           </AnimatedSection>
@@ -163,7 +157,7 @@ export default function Solutions() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Don't See Your Industry?" subtitle="We've worked across 10+ verticals. Let's discuss how we can help your specific situation." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

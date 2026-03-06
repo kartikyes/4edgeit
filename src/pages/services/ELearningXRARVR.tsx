@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   CheckCircle2, Glasses, Eye
@@ -31,16 +31,11 @@ export default function ELearningXRARVR() {
         proofLine="50+ VR Experiences Built | 10,000+ Employees Trained in VR | 40% Faster Training"
         primaryCta={{ label: 'Experience VR Demo', href: '/company#contact' }}
         secondaryCta={{ label: 'Discuss Your Project', href: '/company#contact' }}
-        stats={[
-          { value: 50, suffix: '+', label: 'VR Experiences Built' },
-          { value: 10000, suffix: '+', label: 'Trained in VR' },
-          { value: 40, suffix: '%', label: 'Faster Training' },
-        ]}
       />
 
       {/* OVERVIEW */}
       <section className="py-14 md:py-20 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-medium-gray mb-8">
@@ -69,7 +64,7 @@ export default function ELearningXRARVR() {
 
       {/* WHY IMMERSIVE TRAINING */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY XR" title="Why Immersive Training?" subtitle="Research-backed advantages of VR/AR/XR over traditional training methods." />
           </AnimatedSection>
@@ -94,7 +89,7 @@ export default function ELearningXRARVR() {
 
       {/* VR TRAINING TYPES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="VR SOLUTIONS" title="Virtual Reality Training" subtitle="Fully immersive 3D environments for high-impact training scenarios." />
           </AnimatedSection>
@@ -148,7 +143,7 @@ export default function ELearningXRARVR() {
 
       {/* AR TRAINING TYPES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="AR SOLUTIONS" title="Augmented Reality Training" subtitle="Overlay digital information on the real world for contextual, on-the-job learning." />
           </AnimatedSection>
@@ -184,7 +179,7 @@ export default function ELearningXRARVR() {
 
       {/* MIXED REALITY */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="MIXED REALITY" title="Mixed Reality & XR Solutions" subtitle="Blend physical and digital worlds for the most advanced training experiences." />
           </AnimatedSection>
@@ -233,7 +228,7 @@ export default function ELearningXRARVR() {
 
       {/* DEVELOPMENT PROCESS */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PROCESS" title="XR Development Process" />
           </AnimatedSection>
@@ -263,15 +258,15 @@ export default function ELearningXRARVR() {
 
       {/* ROI */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="ROI" title="ROI of Immersive Training" subtitle="Real-world example: How VR safety training pays for itself." />
           </AnimatedSection>
           <AnimatedSection>
             <Card variant="feature" className="max-w-3xl mx-auto">
               <h3 className="text-lg font-bold font-heading text-dark-text mb-4">Example: Forklift Safety VR Training</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full">
+              <div className="overflow-x-auto -mx-2 px-2">
+                <table className="w-full min-w-105">
                   <tbody>
                     {[
                       { metric: 'Traditional Training Cost (50 operators)', value: '₹15L/year', note: 'Instructor time + downtime + equipment' },
@@ -297,28 +292,28 @@ export default function ELearningXRARVR() {
 
       {/* HARDWARE RECOMMENDATIONS */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="HARDWARE" title="Recommended Hardware" subtitle="We help you select, procure, and configure the right devices for your use case and budget." />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <table className="w-full min-w-140 bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
                 <thead>
                   <tr className="bg-primary-dark text-white">
-                    <th className="text-left p-4 font-heading font-semibold">Device</th>
-                    <th className="text-left p-4 font-heading font-semibold">Type</th>
-                    <th className="text-left p-4 font-heading font-semibold">Price</th>
-                    <th className="text-left p-4 font-heading font-semibold">Best For</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[25%]">Device</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[18%]">Type</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[22%]">Price</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[35%]">Best For</th>
                   </tr>
                 </thead>
                 <tbody>
                   {xrHardware.map((h, i) => (
                     <motion.tr key={h.name} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'} initial={{ opacity: 1, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}>
-                      <td className="p-4 font-semibold text-dark-text text-sm">{h.name}</td>
-                      <td className="p-4 text-sm"><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2 py-0.5 rounded-full">{h.category}</span></td>
-                      <td className="p-4 text-sm font-mono text-primary font-semibold">{h.price}</td>
-                      <td className="p-4 text-sm text-medium-gray">{h.notes}</td>
+                      <td className="p-3 md:p-4 font-semibold text-dark-text text-xs md:text-sm">{h.name}</td>
+                      <td className="p-3 md:p-4 text-sm"><span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2 py-0.5 rounded-full">{h.category}</span></td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm font-mono text-primary font-semibold">{h.price}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-medium-gray">{h.notes}</td>
                     </motion.tr>
                   ))}
                 </tbody>
@@ -331,7 +326,7 @@ export default function ELearningXRARVR() {
 
       {/* CASE STUDIES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CASE STUDIES" title="Featured XR Projects" />
           </AnimatedSection>
@@ -359,7 +354,7 @@ export default function ELearningXRARVR() {
 
       {/* FAQ */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -383,7 +378,7 @@ export default function ELearningXRARVR() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Ready to Enter the Immersive Age?" subtitle="Experience a VR demo in your facility or discuss your immersive training requirements." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

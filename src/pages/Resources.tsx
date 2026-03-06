@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import {
   FileText, Video, BookOpen, Download
 } from 'lucide-react';
@@ -73,7 +73,7 @@ export default function Resources() {
 
       {/* FILTER & GRID */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           {/* Filter Tabs */}
           <AnimatedSection>
             <div className="flex flex-wrap gap-2 mb-10 justify-center">
@@ -126,7 +126,7 @@ export default function Resources() {
 
       {/* NEWSLETTER CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Stay Updated" subtitle="Get new resources, industry insights, and product updates delivered to your inbox." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

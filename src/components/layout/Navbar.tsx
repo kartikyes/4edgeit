@@ -7,13 +7,10 @@ import { navigationItems } from '../../data/navigation';
 import MegaMenu from '../ui/MegaMenu';
 import Button from '../ui/Button';
 
-function Logo({ light = false }: { light?: boolean }) {
+function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2 shrink-0">
-      <img src={LogoImg} alt="4Edge logo" className="w-10 h-10 object-contain" />
-      <span className={`text-lg font-bold font-heading ${light ? 'text-white' : 'text-dark-text'}`}>
-        4Edge <span className="font-normal">IT Solutions</span>
-      </span>
+    <Link to="/" className="flex items-center shrink-0">
+      <img src={LogoImg} alt="4Edge logo" className="h-14.5 md:h-18 w-auto object-contain" />
     </Link>
   );
 }
@@ -52,7 +49,7 @@ export default function Navbar() {
       >
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Logo light={!scrolled} />
+            <Logo />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-6">

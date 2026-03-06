@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   CheckCircle2, BookOpen, Settings, Users, ShieldCheck,
@@ -33,16 +33,11 @@ export default function LearningTrainingSolutions() {
         proofLine="70+ Enterprise Clients | 500+ Custom Courses Created | 200,000+ Employees Trained"
         primaryCta={{ label: 'Schedule Consultation', href: '/company#contact' }}
         secondaryCta={{ label: 'Download Service Portfolio', href: '/resources' }}
-        stats={[
-          { value: 70, suffix: '+', label: 'Enterprise Clients' },
-          { value: 500, suffix: '+', label: 'Custom Courses' },
-          { value: 200000, suffix: '+', label: 'Employees Trained' },
-        ]}
       />
 
       {/* OVERVIEW */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="OVERVIEW" title="Your End-to-End Learning Technology Partner" />
           </AnimatedSection>
@@ -75,7 +70,7 @@ export default function LearningTrainingSolutions() {
 
       {/* SERVICE 1.1: LMS IMPLEMENTATION */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICE 1.1" title="LMS Implementation & Deployment" subtitle="From zero to fully operational enterprise LMS — configured, integrated, and optimized for your workflows." align="left" />
           </AnimatedSection>
@@ -152,7 +147,7 @@ export default function LearningTrainingSolutions() {
 
       {/* SERVICE 1.2: CUSTOM CONTENT */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICE 1.2" title="Custom Content Development" subtitle="From instructional design to multimedia production — engaging content that drives learning outcomes." align="left" />
           </AnimatedSection>
@@ -307,7 +302,7 @@ export default function LearningTrainingSolutions() {
 
       {/* SERVICE 1.3: ILT */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICE 1.3" title="Instructor-Led Training Management" subtitle="Seamlessly manage in-person, virtual, and blended training programs with certified expert trainers." align="left" />
           </AnimatedSection>
@@ -389,7 +384,7 @@ export default function LearningTrainingSolutions() {
 
       {/* SERVICE 1.4: COMPLIANCE */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICE 1.4" title="Compliance Training Programs" subtitle="Automated, audit-ready compliance training for regulated industries." align="left" />
           </AnimatedSection>
@@ -421,7 +416,7 @@ export default function LearningTrainingSolutions() {
 
       {/* SERVICE 1.5: STRATEGY */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICE 1.5" title="Learning Strategy & Consulting" subtitle="Expert guidance for your learning technology decisions, program design, and measurement." align="left" />
           </AnimatedSection>
@@ -436,7 +431,7 @@ export default function LearningTrainingSolutions() {
             ].map((s) => (
               <StaggerItem key={s.title}>
                 <Card variant="feature" className="h-full">
-                  <IconWrapper size="sm" className="mb-3">{s.icon}</IconWrapper>
+                  <IconWrapper size="sm" className="mb-3 mx-auto">{s.icon}</IconWrapper>
                   <h3 className="font-bold font-heading text-dark-text mb-2">{s.title}</h3>
                   <p className="text-sm text-medium-gray">{s.desc}</p>
                 </Card>
@@ -448,7 +443,7 @@ export default function LearningTrainingSolutions() {
 
       {/* METHODOLOGY */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="METHODOLOGY" title="The 4Edge Methodology" subtitle="Our proven 5-phase approach ensures every engagement delivers measurable results." />
           </AnimatedSection>
@@ -481,7 +476,7 @@ export default function LearningTrainingSolutions() {
 
       {/* WHY 4EDGE */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHY US" title="Why 4Edge for Learning & Training" />
           </AnimatedSection>
@@ -510,7 +505,7 @@ export default function LearningTrainingSolutions() {
 
       {/* CASE STUDIES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CASE STUDIES" title="Client Success Stories" />
           </AnimatedSection>
@@ -538,7 +533,7 @@ export default function LearningTrainingSolutions() {
 
       {/* PRICING */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PRICING" title="Flexible Pricing Models" subtitle="Choose the model that fits your budget and engagement style." />
           </AnimatedSection>
@@ -575,7 +570,7 @@ export default function LearningTrainingSolutions() {
 
       {/* FAQ */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -599,7 +594,7 @@ export default function LearningTrainingSolutions() {
 
       {/* GETTING STARTED */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading title="Ready to Transform Your Training?" light />
           </AnimatedSection>

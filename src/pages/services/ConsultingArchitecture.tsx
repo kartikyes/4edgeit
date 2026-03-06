@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   CheckCircle2, Target, Settings, BarChart3,
@@ -42,16 +42,11 @@ export default function ConsultingArchitecture() {
         proofLine="70+ Consulting Engagements | 15+ Years Experience | ₹50Cr+ in Client Savings"
         primaryCta={{ label: 'Schedule Consultation', href: '/company#contact' }}
         secondaryCta={{ label: 'Download Consulting Guide', href: '/resources' }}
-        stats={[
-          { value: 70, suffix: '+', label: 'Consulting Engagements' },
-          { value: 15, suffix: '+', label: 'Years Experience' },
-          { value: 50, suffix: 'Cr+', label: 'Client Savings' },
-        ]}
       />
 
       {/* WHEN YOU NEED CONSULTING */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="WHEN TO ENGAGE" title="When You Need Consulting" subtitle="Common scenarios where expert guidance saves time, money, and frustration." />
           </AnimatedSection>
@@ -65,7 +60,7 @@ export default function ConsultingArchitecture() {
             {consultingScenarios.map((scenario) => (
               <StaggerItem key={scenario.title}>
                 <Card variant="feature" className="h-full">
-                  <IconWrapper>{scenarioIconMap[scenario.iconName]}</IconWrapper>
+                  <IconWrapper className="mx-auto">{scenarioIconMap[scenario.iconName]}</IconWrapper>
                   <h3 className="font-bold font-heading text-dark-text mt-3">{scenario.title}</h3>
                   <p className="text-sm text-medium-gray mt-2">{scenario.desc}</p>
                 </Card>
@@ -77,7 +72,7 @@ export default function ConsultingArchitecture() {
 
       {/* CONSULTING SERVICES */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="SERVICES" title="Consulting Services" subtitle="Six specialized consulting engagements covering all aspects of learning technology strategy." />
           </AnimatedSection>
@@ -143,7 +138,7 @@ export default function ConsultingArchitecture() {
 
       {/* OUR APPROACH */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="APPROACH" title="Our Consulting Approach" subtitle="Four principles that guide every engagement." />
           </AnimatedSection>
@@ -165,26 +160,26 @@ export default function ConsultingArchitecture() {
 
       {/* PRICING */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="PRICING" title="Engagement & Pricing" />
           </AnimatedSection>
           <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <table className="w-full min-w-105 bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
                 <thead>
                   <tr className="bg-primary-dark text-white">
-                    <th className="text-left p-4 font-heading font-semibold">Engagement Type</th>
-                    <th className="text-left p-4 font-heading font-semibold">Price Range</th>
-                    <th className="text-left p-4 font-heading font-semibold">Duration</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[40%]">Engagement Type</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[30%]">Price Range</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[30%]">Duration</th>
                   </tr>
                 </thead>
                 <tbody>
                   {consultingPricing.map((r, i) => (
                     <tr key={r.type} className={i % 2 === 0 ? 'bg-white' : 'bg-light-gray/50'}>
-                      <td className="p-4 text-sm font-semibold text-dark-text">{r.type}</td>
-                      <td className="p-4 text-sm font-mono text-primary font-semibold">{r.price}</td>
-                      <td className="p-4 text-sm text-medium-gray">{r.duration}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm font-semibold text-dark-text">{r.type}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm font-mono text-primary font-semibold">{r.price}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-medium-gray">{r.duration}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -196,7 +191,7 @@ export default function ConsultingArchitecture() {
 
       {/* CASE STUDIES */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="CASE STUDIES" title="Featured Consulting Engagements" />
           </AnimatedSection>
@@ -224,7 +219,7 @@ export default function ConsultingArchitecture() {
 
       {/* FAQ */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading badge="FAQ" title="Frequently Asked Questions" />
           </AnimatedSection>
@@ -248,7 +243,7 @@ export default function ConsultingArchitecture() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <AnimatedSection>
             <SectionHeading title="Ready for Expert Guidance?" subtitle="Book a free 30-minute discovery call to discuss your learning technology challenges." light />
             <div className="flex flex-wrap justify-center gap-4 mt-8">

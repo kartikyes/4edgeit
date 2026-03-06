@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   ArrowRight, Building2, Brain, Layers, Factory, Landmark, Flame, Monitor,
@@ -73,7 +73,7 @@ export default function Home() {
             {valuePropositionCards.map((card) => (
               <StaggerItem key={card.title}>
                 <Card variant="feature">
-                  <IconWrapper size="lg" className="mb-4">
+                  <IconWrapper size="lg" className="mb-4 mx-auto">
                     {iconMap[card.icon]}
                   </IconWrapper>
                   <h3 className="text-xl font-bold font-heading text-heading mb-2">{card.title}</h3>
@@ -114,7 +114,7 @@ export default function Home() {
             {industryCards.map((card) => (
               <StaggerItem key={card.industry}>
                 <Card variant="industry" className="h-full hover:border-primary">
-                  <IconWrapper className="mb-4">
+                  <IconWrapper className="mb-4 mx-auto">
                     {iconMap[card.icon]}
                   </IconWrapper>
                   <h3 className="text-lg font-bold font-heading text-dark-text mb-1">{card.industry}</h3>
@@ -217,13 +217,13 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
+            <div className="overflow-x-auto -mx-4 px-4">
+              <table className="w-full min-w-140 bg-white rounded-2xl overflow-hidden shadow-sm border border-border-gray">
                 <thead>
                   <tr className="bg-primary-dark text-white">
-                    <th className="text-left p-4 md:p-5 font-heading font-semibold w-1/4">What You Need</th>
-                    <th className="text-left p-4 md:p-5 font-heading font-semibold w-[37.5%]">Typical LMS Vendors</th>
-                    <th className="text-left p-4 md:p-5 font-heading font-semibold w-[37.5%] bg-primary">4Edge Solution</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[28%]">Feature</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[36%]">Typical LMS Vendors</th>
+                    <th className="text-left p-3 md:p-4 font-heading font-semibold text-sm w-[36%] bg-primary">4Edge Solution</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -236,16 +236,16 @@ export default function Home() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.07, ease: 'easeOut' }}
                     >
-                      <td className="p-4 md:p-5 font-semibold text-dark-text text-sm">{row.feature}</td>
-                      <td className="p-4 md:p-5 text-sm text-gray-900">
-                        <span className="flex items-start gap-2">
-                          <XIcon className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                      <td className="p-3 md:p-4 font-semibold text-dark-text text-xs md:text-sm">{row.feature}</td>
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-gray-900">
+                        <span className="flex items-start gap-1.5">
+                          <XIcon className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
                           {row.typical}
                         </span>
                       </td>
-                      <td className="p-4 md:p-5 text-sm text-gray-900 bg-green-accent/5">
-                        <span className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0 mt-0.5" />
+                      <td className="p-3 md:p-4 text-xs md:text-sm text-gray-900 bg-green-accent/5">
+                        <span className="flex items-start gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-green-accent shrink-0 mt-0.5" />
                           {row.fourEdge}
                         </span>
                       </td>
@@ -324,7 +324,7 @@ export default function Home() {
             {techHighlights.map((tech) => (
               <FadeScaleItem key={tech.title}>
                 <Card variant="feature" className="h-full">
-                  <IconWrapper size="lg" className="mb-4">
+                  <IconWrapper size="lg" className="mb-4 mx-auto">
                     {iconMap[tech.icon]}
                   </IconWrapper>
                   <h3 className="text-xl font-bold font-heading text-dark-text mb-2">{tech.title}</h3>
@@ -414,7 +414,7 @@ export default function Home() {
             {resourceCards.map((res) => (
               <StaggerItem key={res.title}>
                 <Card variant="resource" className="h-full flex flex-col">
-                  <IconWrapper className="mb-4">
+                  <IconWrapper className="mb-4 mx-auto">
                     {iconMap[res.icon]}
                   </IconWrapper>
                   <h3 className="text-lg font-bold font-heading text-dark-text mb-2">{res.title}</h3>
