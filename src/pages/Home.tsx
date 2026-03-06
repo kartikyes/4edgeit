@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* ====== SECTION 1: VALUE PROPOSITION ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="WHY 4EDGE"
@@ -101,7 +101,7 @@ export default function Home() {
 
       {/* ====== SECTION 2: INDUSTRIES WE SERVE ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="INDUSTRIES"
@@ -139,7 +139,7 @@ export default function Home() {
 
       {/* ====== SECTION 3: CORE OFFERINGS ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="OUR SOLUTIONS"
@@ -208,7 +208,7 @@ export default function Home() {
 
       {/* ====== SECTION 4: COMPARISON TABLE ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="COMPARISON"
@@ -260,7 +260,7 @@ export default function Home() {
 
       {/* ====== SECTION 5: SUCCESS STORIES ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="CASE STUDIES"
@@ -311,7 +311,7 @@ export default function Home() {
 
       {/* ====== SECTION 6: TECHNOLOGY HIGHLIGHTS ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="TECHNOLOGY"
@@ -348,7 +348,7 @@ export default function Home() {
 
       {/* ====== SECTION 7: PRICING ====== */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="PRICING"
@@ -402,7 +402,7 @@ export default function Home() {
 
       {/* ====== SECTION 8: RESOURCES PREVIEW ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="RESOURCES"
@@ -431,7 +431,7 @@ export default function Home() {
 
       {/* ====== SECTION 9: CLIENT LOGO WALL ====== */}
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="OUR CLIENTS"
@@ -465,7 +465,7 @@ export default function Home() {
 
       {/* ====== SECTION 10: FAQ ====== */}
       <section className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               badge="FAQ"
@@ -475,7 +475,7 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection>
-            <div className="max-w-3xl mx-auto space-y-3">
+            <div className="max-w-6xl mx-auto space-y-3">
               {faqData.map((faq, i) => (
                 <motion.div
                   key={i}
@@ -499,7 +499,7 @@ export default function Home() {
 
       {/* ====== SECTION 11: FINAL CTA ====== */}
       <section className="py-20 md:py-24 gradient-cta">
-        <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
               title="Ready to Transform Your Enterprise Training?"

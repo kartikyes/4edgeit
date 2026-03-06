@@ -16,6 +16,7 @@ import {
   deploymentOptions, knestComparison, knestCaseStudies, knestFAQs,
 } from '../../data/productsData';
 import HeroSection from '../../components/ui/HeroSection';
+import StackedCard from '../../components/ui/StackedCard';
 import type { ReactNode } from 'react';
 
 const iconMap: Record<string, ReactNode> = {
@@ -101,133 +102,144 @@ export default function KNestLMS() {
       </section>
 
       {/* ====== CORE FEATURES ====== */}
-      <section id="features" className="py-20 md:py-24 bg-light-gray">
-        <div className="max-w-screen-xl mx-auto px-4">
+      <section id="features" className="bg-light-gray">
+        {/* Section heading — scrolls away in normal flow before stacking begins */}
+        <div className="pt-20 md:pt-24 pb-10 max-w-7xl mx-auto px-4">
           <AnimatedSection>
-            <SectionHeading badge="FEATURES" title="Comprehensive Feature Set for Enterprise Learning" subtitle="K-Nest includes every feature enterprise L&D teams actually use, with zero bloat. No hidden fees, no surprise add-ons, no 'contact sales for pricing' on basic functionality." />
+            <SectionHeading
+              badge="FEATURES"
+              title="Comprehensive Feature Set for Enterprise Learning"
+              subtitle="K-Nest includes every feature enterprise L&D teams actually use, with zero bloat. No hidden fees, no surprise add-ons, no 'contact sales for pricing' on basic functionality."
+            />
           </AnimatedSection>
-          <div className="space-y-8">
-            {knestFeatures.map((feat, idx) => (
-              <AnimatedSection key={feat.title} direction={idx % 2 === 0 ? 'left' : 'right'}>
-                <Card variant="feature">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="md:col-span-2">
-                      <div className="flex items-center gap-3 mb-3">
-                        <IconWrapper>{iconMap[feat.icon]}</IconWrapper>
-                        <h3 className="text-xl font-bold font-heading text-dark-text">{feat.title}</h3>
-                      </div>
-                      <p className="text-medium-gray mb-4">{feat.description}</p>
-                      {(feat.bullets && feat.bullets.length > 0) && (
-                        <ul className="space-y-2 mb-4">
-                          {feat.bullets.map((b) => (
-                            <li key={b} className="flex items-start gap-2 text-sm text-medium-gray">
-                              <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0 mt-0.5" />
-                              {b}
+        </div>
+
+        {/* Stacked scroll cards */}
+        <StackedCard
+          items={knestFeatures}
+          topOffset={88}
+          renderItem={(feat) => (
+            <div className="max-w-7xl mx-auto px-4">
+              <Card variant="feature">
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-2">
+                    <div className="flex items-center gap-3 mb-3">
+                      <IconWrapper>{iconMap[feat.icon]}</IconWrapper>
+                      <h3 className="text-xl font-bold font-heading text-dark-text">{feat.title}</h3>
+                    </div>
+                    <p className="text-medium-gray mb-4">{feat.description}</p>
+                    {feat.bullets && feat.bullets.length > 0 && (
+                      <ul className="space-y-2 mb-4">
+                        {feat.bullets.map((b) => (
+                          <li key={b} className="flex items-start gap-2 text-sm text-medium-gray">
+                            <CheckCircle2 className="w-4 h-4 text-green-accent shrink-0 mt-0.5" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {/* Extra labelled groups e.g. Psychology Behind It, Analytics Capabilities */}
+                    {feat.extraGroups?.map((group) => (
+                      <div key={group.title} className="mt-4">
+                        <h4 className="text-sm font-semibold text-dark-text mb-2">{group.title}</h4>
+                        <ul className="space-y-1.5">
+                          {group.items.map((item) => (
+                            <li key={item} className="flex items-start gap-2 text-sm text-medium-gray">
+                              <CheckCircle2 className="w-4 h-4 text-cyan-accent shrink-0 mt-0.5" />
+                              {item}
                             </li>
                           ))}
                         </ul>
-                      )}
-                      {/* Extra labelled groups e.g. Psychology Behind It, Analytics Capabilities, Mobile-Specific */}
-                      {feat.extraGroups?.map((group) => (
-                        <div key={group.title} className="mt-4">
-                          <h4 className="text-sm font-semibold text-dark-text mb-2">{group.title}</h4>
-                          <ul className="space-y-1.5">
-                            {group.items.map((item) => (
-                              <li key={item} className="flex items-start gap-2 text-sm text-medium-gray">
-                                <CheckCircle2 className="w-4 h-4 text-cyan-accent shrink-0 mt-0.5" />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                      {/* Workflow Steps e.g. Blended Learning */}
-                      {feat.workflowSteps && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-dark-text mb-3">Workflow Example</h4>
-                          <ol className="space-y-2">
-                            {feat.workflowSteps.map((step, i) => (
-                              <li key={step.phase} className="flex items-start gap-3 text-sm">
-                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold">{i + 1}</span>
-                                <div>
-                                  <span className="font-semibold text-dark-text">{step.title}:</span>{' '}
-                                  <span className="text-medium-gray">{step.desc}</span>
-                                </div>
-                              </li>
-                            ))}
-                          </ol>
-                        </div>
-                      )}
-                      {/* Security categories */}
-                      {feat.securityCategories && (
-                        <div className="mt-4 grid sm:grid-cols-2 gap-3">
-                          {feat.securityCategories.map((cat) => (
-                            <div key={cat.category} className="bg-light-gray rounded-lg p-3">
-                              <h4 className="text-xs font-semibold uppercase text-dark-text tracking-wide mb-1">{cat.category}</h4>
-                              <ul className="space-y-1">
-                                {cat.items.map((item) => (
-                                  <li key={item} className="text-xs text-medium-gray flex items-start gap-1.5">
-                                    <CheckCircle2 className="w-3 h-3 text-green-accent shrink-0 mt-0.5" />{item}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                      </div>
+                    ))}
+                    {/* Workflow Steps */}
+                    {feat.workflowSteps && (
+                      <div className="mt-4">
+                        <h4 className="text-sm font-semibold text-dark-text mb-3">Workflow Example</h4>
+                        <ol className="space-y-2">
+                          {feat.workflowSteps.map((step, i) => (
+                            <li key={step.phase} className="flex items-start gap-3 text-sm">
+                              <span className="shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold">
+                                {i + 1}
+                              </span>
+                              <div>
+                                <span className="font-semibold text-dark-text">{step.title}:</span>{' '}
+                                <span className="text-medium-gray">{step.desc}</span>
+                              </div>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+                    {/* Security categories */}
+                    {feat.securityCategories && (
+                      <div className="mt-4 grid sm:grid-cols-2 gap-3">
+                        {feat.securityCategories.map((cat) => (
+                          <div key={cat.category} className="bg-light-gray rounded-lg p-3">
+                            <h4 className="text-xs font-semibold uppercase text-dark-text tracking-wide mb-1">{cat.category}</h4>
+                            <ul className="space-y-1">
+                              {cat.items.map((item) => (
+                                <li key={item} className="text-xs text-medium-gray flex items-start gap-1.5">
+                                  <CheckCircle2 className="w-3 h-3 text-green-accent shrink-0 mt-0.5" />{item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {/* Certifications */}
+                    {feat.certifications && (
+                      <div className="mt-3">
+                        <h4 className="text-sm font-semibold text-dark-text mb-2">Certifications</h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {feat.certifications.map((c) => (
+                            <Badge key={c} variant="primary" size="sm">{c}</Badge>
                           ))}
                         </div>
-                      )}
-                      {/* Certifications */}
-                      {feat.certifications && (
-                        <div className="mt-3">
-                          <h4 className="text-sm font-semibold text-dark-text mb-2">Certifications</h4>
-                          <div className="flex flex-wrap gap-1.5">
-                            {feat.certifications.map((c) => (
-                              <Badge key={c} variant="primary" size="sm">{c}</Badge>
-                            ))}
-                          </div>
+                      </div>
+                    )}
+                    {/* Compliance Reporting */}
+                    {feat.complianceReporting && (
+                      <div className="mt-3">
+                        <h4 className="text-sm font-semibold text-dark-text mb-2">Pre-built Compliance Reports for</h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {feat.complianceReporting.map((r) => (
+                            <Badge key={r} variant="primary" size="sm">{r}</Badge>
+                          ))}
                         </div>
-                      )}
-                      {/* Compliance Reporting */}
-                      {feat.complianceReporting && (
-                        <div className="mt-3">
-                          <h4 className="text-sm font-semibold text-dark-text mb-2">Pre-built Compliance Reports for</h4>
-                          <div className="flex flex-wrap gap-1.5">
-                            {feat.complianceReporting.map((r) => (
-                              <Badge key={r} variant="primary" size="sm">{r}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="space-y-4">
-                      {feat.businessImpact && (
-                        <div className="bg-green-accent/10 rounded-xl p-4">
-                          <h4 className="text-xs font-semibold uppercase text-green-accent tracking-wide mb-1">Business Impact</h4>
-                          <p className="text-sm text-dark-text font-medium">{feat.businessImpact}</p>
-                        </div>
-                      )}
-                      {feat.clientStory && (
-                        <div className="bg-cyan-accent/10 rounded-xl p-4">
-                          <h4 className="text-xs font-semibold uppercase text-cyan-accent tracking-wide mb-1">{feat.clientStory.client}</h4>
-                          <p className="text-sm text-dark-text">{feat.clientStory.story}</p>
-                        </div>
-                      )}
-                      {feat.useCases && (
-                        <div className="bg-primary/5 rounded-xl p-4">
-                          <h4 className="text-xs font-semibold uppercase text-primary tracking-wide mb-2">Use Cases</h4>
-                          <div className="flex flex-wrap gap-1.5">
-                            {feat.useCases.map((uc) => (
-                              <Badge key={uc} variant="primary" size="sm">{uc}</Badge>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
+                  <div className="space-y-4">
+                    {feat.businessImpact && (
+                      <div className="bg-green-accent/10 rounded-xl p-4">
+                        <h4 className="text-xs font-semibold uppercase text-green-accent tracking-wide mb-1">Business Impact</h4>
+                        <p className="text-sm text-dark-text font-medium">{feat.businessImpact}</p>
+                      </div>
+                    )}
+                    {feat.clientStory && (
+                      <div className="bg-cyan-accent/10 rounded-xl p-4">
+                        <h4 className="text-xs font-semibold uppercase text-cyan-accent tracking-wide mb-1">{feat.clientStory.client}</h4>
+                        <p className="text-sm text-dark-text">{feat.clientStory.story}</p>
+                      </div>
+                    )}
+                    {feat.useCases && (
+                      <div className="bg-primary/5 rounded-xl p-4">
+                        <h4 className="text-xs font-semibold uppercase text-primary tracking-wide mb-2">Use Cases</h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {feat.useCases.map((uc) => (
+                            <Badge key={uc} variant="primary" size="sm">{uc}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            </div>
+          )}
+        />
       </section>
 
       {/* ====== TECHNICAL SPECS ====== */}

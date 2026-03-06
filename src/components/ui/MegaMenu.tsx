@@ -103,7 +103,7 @@ export default function MegaMenu({ label, items, mobile = false, light = false }
             exit={{ opacity: 1, scaleY: 0.95, y: -5 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             style={{ transformOrigin: 'top' }}
-            className="absolute top-full left-0 min-w-[280px] mt-1 bg-white rounded-xl shadow-xl border border-border-gray p-3 z-50"
+            className="absolute top-full left-0 min-w-70 mt-1 bg-white rounded-xl shadow-xl border border-border-gray p-3 z-50"
           >
             {items.map((item) => (
               <Link
